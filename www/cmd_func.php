@@ -19,8 +19,17 @@
 		}
 	}
 
+	function food_cmd() {
+		shell_exec('curl http://192.168.178.172/push');
+	}
+
 	if(isset($_GET['cmd'])) {
 		$cmd=$_GET['cmd'];
-		sys_cmd($cmd);
+		if (strncmp($cmd, "food", strlen("food")) == 0) {
+			food_cmd();
+		} else {
+			sys_cmd($cmd);
+		}
+		
 	}
 ?>

@@ -172,6 +172,15 @@ function hashHandler() {
 }
 
 //
+// Food
+//
+
+function get_food() {
+  ajax_status.open("GET", "cmd_func.php?cmd=food", true);
+  ajax_status.send();
+}
+
+//
 // System shutdow, reboot, settime
 //
 function sys_shutdown() {
@@ -412,6 +421,7 @@ else {
 function encodeCmd(s) {
    return s.replace(/&/g,"%26").replace(/#/g,"%23").replace(/\+/g,"%2B");
 }
+
 
 function send_cmd (cmd) {
   ajax_cmd.open("GET","cmd_pipe.php?cmd=" + encodeCmd(cmd),true);
